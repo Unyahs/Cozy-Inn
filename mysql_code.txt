@@ -1,0 +1,29 @@
+CREATE DATABASE Empdb;
+
+
+CREATE TABLE emptbl(
+empid INT(255) AUTO_INCREMENT,
+account_type VARCHAR(200),
+fname VARCHAR(200),
+lname VARCHAR(200),
+date_hired date,
+position VARCHAR(200),
+salary decimal(20, 2),
+department VARCHAR(200),
+username VARCHAR(200),
+password VARCHAR(200),
+PRIMARY KEY(empid));
+
+CREATE TABLE projects_tbl(
+proj_id int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+proj_name VARCHAR(200),
+emp_name VARCHAR(200),
+empid int(255),
+department VARCHAR(200),
+proj_desc VARCHAR(200),
+proj_cost decimal(20, 2),
+proj_start date,
+proj_deadline date,
+proj_remaining_time VARCHAR(200),
+PRIMARY KEY (proj_id),
+FOREIGN KEY (empid) REFERENCES emptbl(empid));
